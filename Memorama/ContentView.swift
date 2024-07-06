@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    let emojis = ["👻", "🎃", "🦠", "☠️"]
     var body: some View {
         HStack {
-            CardView(content: "👻")
-            CardView(content: "👻")
+            ForEach(emojis.indices, id: \.self) { index in
+                CardView(content: "👻")
+            }
         }
         .padding()
         .foregroundColor(.orange)
@@ -27,7 +29,7 @@ struct ContentView: View {
                     base.fill(.white)
                     base.strokeBorder(lineWidth: 2)
                     
-                    Text("\(content)")
+                    Text(content).font(.largeTitle)
                 } else {
                     base.fill(.orange)
                 }
